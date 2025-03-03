@@ -1,0 +1,3 @@
+DROP TABLE if EXISTS users;
+
+ALTER TABLE user_tb RENAME TO users;
