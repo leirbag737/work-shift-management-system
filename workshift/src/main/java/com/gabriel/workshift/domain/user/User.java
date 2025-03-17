@@ -1,5 +1,6 @@
 package com.gabriel.workshift.domain.user;
 
+import com.gabriel.workshift.domain.employee.Employee;
 import com.gabriel.workshift.domain.user.enums.UserRole;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,6 +24,9 @@ public class User implements UserDetails {
 
     private UserRole role;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    private Employee employee;
 
     public User() {
     }
@@ -75,5 +79,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

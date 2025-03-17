@@ -1,0 +1,1 @@
+ALTER TABLE professional_document ADD COLUMN observation VARCHAR(255);

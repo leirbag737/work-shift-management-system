@@ -1,0 +1,4 @@
+CREATE TABLE document_type (
+    id CHAR(36) PRIMARY KEY UNIQUE NOT NULL,
+    name VARCHAR(255)
+);

@@ -1,0 +1,2 @@
+ALTER TABLE professional_document DROP CONSTRAINT IF EXISTS fk_professional_document_job_title;
+ALTER TABLE professional_document DROP COLUMN job_title_id;

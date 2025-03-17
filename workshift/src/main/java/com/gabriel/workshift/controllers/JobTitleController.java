@@ -6,7 +6,6 @@ import com.gabriel.workshift.domain.jobTitle.dto.JobTitleResponseDTO;
 import com.gabriel.workshift.services.JobTitleService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +27,7 @@ public class JobTitleController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<JobTitleResponseDTO> getById(@PathVariable @NotNull @Positive Long id) {
+    public ResponseEntity<JobTitleResponseDTO> getById(@PathVariable @NotNull String id) {
         return ResponseEntity.status(HttpStatus.OK).body(jobTitleService.getById(id));
     }
 
@@ -43,12 +42,12 @@ public class JobTitleController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<JobTitleResponseDTO> update(@PathVariable @Positive @NotNull Long id, @RequestBody @Valid JobTitleRequestDTO data) {
+    public ResponseEntity<JobTitleResponseDTO> update(@PathVariable @NotNull String id, @RequestBody @Valid JobTitleRequestDTO data) {
         return ResponseEntity.status(HttpStatus.OK).body(jobTitleService.update(id, data));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable @Positive @NotNull Long id) {
+    public ResponseEntity delete(@PathVariable @NotNull String id) {
         jobTitleService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

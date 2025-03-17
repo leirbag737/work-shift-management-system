@@ -1,0 +1,1 @@
+ALTER TABLE professional_document DROP COLUMN document_type;

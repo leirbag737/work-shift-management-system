@@ -30,7 +30,7 @@ public class JobTitleService {
         return new JobTitleResponseDTO(jobTitleRepository.save(newJobTitle));
     }
 
-    public JobTitleResponseDTO getById(@NotNull @Positive Long id) {
+    public JobTitleResponseDTO getById(@NotNull String id) {
         JobTitle foundJobTitle = jobTitleRepository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException(id));
         return new JobTitleResponseDTO(foundJobTitle);
@@ -53,7 +53,7 @@ public class JobTitleService {
         return new JobTitlePageDTO(list, jobTitlesPage.getTotalElements(), jobTitlesPage.getTotalPages());
     }
 
-    public JobTitleResponseDTO update(@NotNull @Positive Long id, @Valid JobTitleRequestDTO data) {
+    public JobTitleResponseDTO update(@NotNull String id, @Valid JobTitleRequestDTO data) {
         return jobTitleRepository.findById(id).map(
                 jobTitleToUpdate -> {
                     jobTitleToUpdate.setName(data.name());
@@ -62,7 +62,7 @@ public class JobTitleService {
         ).orElseThrow(() -> new RecordNotFoundException(id));
     }
 
-    public void delete(@Positive @NotNull Long id) {
+    public void delete(@NotNull String id) {
         jobTitleRepository.delete(
                 jobTitleRepository.findById(id)
                         .orElseThrow(() -> new RecordNotFoundException(id))
