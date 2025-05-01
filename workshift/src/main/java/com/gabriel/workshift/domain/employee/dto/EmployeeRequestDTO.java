@@ -5,6 +5,7 @@ import com.gabriel.workshift.domain.employee.enums.ContractType;
 import com.gabriel.workshift.domain.documents.DocumentType;
 import com.gabriel.workshift.domain.documents.dto.ProfessionalDocumentRequestDTO;
 import com.gabriel.workshift.domain.employee.shiftType.ShiftType;
+import com.gabriel.workshift.domain.employee.statusHistory.EmployeeStatusHistory;
 import com.gabriel.workshift.domain.jobTitle.JobTitle;
 import com.gabriel.workshift.domain.user.dto.RegisterDTO;
 import jakarta.validation.constraints.NotBlank;
@@ -37,6 +38,7 @@ public record EmployeeRequestDTO(
 
         @NotNull
         @NotBlank
+        @JsonProperty("phone_number")
         String phoneNumber,
 
         @NotNull
@@ -50,6 +52,9 @@ public record EmployeeRequestDTO(
         JobTitle jobTitle,
 
         @JsonProperty("professional_documents")
-        List<ProfessionalDocumentRequestDTO> professionalDocuments
+        List<ProfessionalDocumentRequestDTO> professionalDocuments,
+
+        @JsonProperty("employee_status")
+        EmployeeStatusHistory employeeStatus
 ) {
 }

@@ -67,7 +67,7 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private Set<ProfessionalDocument> professionalDocuments;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<EmployeeStatusHistory> employeeStatusHistories = new HashSet<>();
 
     public Employee() {
@@ -185,5 +185,11 @@ public class Employee {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void addEmployeeStatus(EmployeeStatusHistory employeeStatus) {
+        employeeStatus.setEmployee(this);
+        this.employeeStatusHistories.add(employeeStatus);
+        this.employeeStatus = employeeStatus.getEmployeeStatus();
     }
 }

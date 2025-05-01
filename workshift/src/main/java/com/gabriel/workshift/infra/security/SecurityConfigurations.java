@@ -32,7 +32,7 @@ public class SecurityConfigurations {
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
                         .requestMatchers(HttpMethod.POST, "/job-titles", "/employees").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/job-titles/**", "/employees/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/job-titles/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/job-titles/**", "/employees/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/job-titles/**").hasRole("ADMIN")
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

@@ -6,6 +6,7 @@ import com.gabriel.workshift.domain.employee.dto.EmployeeRequestDTO;
 import com.gabriel.workshift.domain.employee.dto.EmployeeResponseDTO;
 import com.gabriel.workshift.services.EmployeeService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,5 +34,10 @@ public class EmployeeController {
     @GetMapping
     public ResponseEntity<EmployeePageDTO> list(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int pageSize) {
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.list(page, pageSize));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<EmployeeResponseDTO> update(@PathVariable @NotNull String id, @RequestBody @Valid EmployeeRequestDTO data) {
+        return ResponseEntity.status(HttpStatus.OK).body(employeeService.update(id, data));
     }
 }

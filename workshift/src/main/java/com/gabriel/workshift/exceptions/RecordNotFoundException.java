@@ -7,11 +7,11 @@ public class RecordNotFoundException extends RuntimeException {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public RecordNotFoundException(Long id) {
+    public RecordNotFoundException(String id) {
         super("Record not found with id: " + id);
     }
 
-    public RecordNotFoundException(String message) {
+    public RecordNotFoundException(String message, String id) {
         super(message);
     }
 }

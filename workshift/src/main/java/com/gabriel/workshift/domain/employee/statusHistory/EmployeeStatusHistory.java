@@ -18,12 +18,12 @@ public class EmployeeStatusHistory {
     private String id;
 
     @Convert(converter = StatusConverter.class)
-    private Status statusEmployeeStatusHistory;
+    private Status statusEmployeeStatusHistory = Status.ACTIVE;
 
     @Convert(converter = EmployeeStatusConverter.class)
     private EmployeeStatus employeeStatus;
 
-    private LocalDate stardDate;
+    private LocalDate startDate;
 
     private LocalDate endDate;
 
@@ -39,7 +39,7 @@ public class EmployeeStatusHistory {
 
     public EmployeeStatusHistory(EmployeeStatus employeeStatus, LocalDate stardDate, LocalDate endDate, String observation, Employee employee) {
         this.employeeStatus = employeeStatus;
-        this.stardDate = stardDate;
+        this.startDate = stardDate;
         this.endDate = endDate;
         this.observation = observation;
         this.employee = employee;
@@ -57,12 +57,12 @@ public class EmployeeStatusHistory {
         this.employeeStatus = employeeStatus;
     }
 
-    public LocalDate getStardDate() {
-        return stardDate;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
-    public void setStardDate(LocalDate stardDate) {
-        this.stardDate = stardDate;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
     public LocalDate getEndDate() {
