@@ -20,16 +20,13 @@ public record EmployeeRequestDTO(
         String name,
 
         @NotNull
-        @JsonProperty("personal_document_type")
         DocumentType personalDocumentType,
 
         @NotNull
         @NotBlank
-        @JsonProperty("personal_document")
         String personalDocument,
 
         @NotNull
-        @JsonProperty("contract_type")
         ContractType contractType,
 
         @NotNull
@@ -38,23 +35,18 @@ public record EmployeeRequestDTO(
 
         @NotNull
         @NotBlank
-        @JsonProperty("phone_number")
         String phoneNumber,
 
         @NotNull
         RegisterDTO user,
 
-        @JsonProperty("shift_type")
         ShiftType shiftType,
 
         @NotNull
-        @JsonProperty("job_title")
         JobTitle jobTitle,
 
-        @JsonProperty("professional_documents")
         List<ProfessionalDocumentRequestDTO> professionalDocuments,
 
-        @JsonProperty("employee_status")
         EmployeeStatusHistory employeeStatus
 ) {
 }

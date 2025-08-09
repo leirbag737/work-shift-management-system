@@ -30,7 +30,7 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/job-titles", "/employees").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/job-titles", "/employees", "/working-hours", "/shift").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/job-titles/**", "/employees/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/job-titles/**", "/employees/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/job-titles/**").hasRole("ADMIN")

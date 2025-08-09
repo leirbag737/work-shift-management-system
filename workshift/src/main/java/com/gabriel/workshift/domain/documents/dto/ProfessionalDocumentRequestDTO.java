@@ -8,12 +8,10 @@ import jakarta.validation.constraints.NotNull;
 public record ProfessionalDocumentRequestDTO(
 
         @NotNull
-        @JsonProperty("document_type")
         DocumentType documentType,
 
         @NotNull
         @NotBlank
-        @JsonProperty("document_number")
         String documentNumber,
 
         String observation

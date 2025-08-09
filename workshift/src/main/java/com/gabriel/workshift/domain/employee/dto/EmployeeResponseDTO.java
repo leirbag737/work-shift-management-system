@@ -14,32 +14,24 @@ public record EmployeeResponseDTO(
 
         String id,
 
-        @JsonProperty("employee_status")
         EmployeeStatus employeeStatus,
 
         String name,
 
-        @JsonProperty("personal_document_type")
         DocumentType personalDocumentType,
 
-        @JsonProperty("personal_document")
         String personalDocument,
 
-        @JsonProperty("contract_type")
         ContractType contractType,
 
         String email,
 
-        @JsonProperty("phone_number")
         String phoneNumber,
 
-        @JsonProperty("shift_type")
         ShiftType shiftType,
 
-        @JsonProperty("job_title")
         JobTitle jobTitle,
 
-        @JsonProperty("professional_documents")
         List<ProfessionalDocumentResponseDTO> professionalDocuments
 ) {
 }
