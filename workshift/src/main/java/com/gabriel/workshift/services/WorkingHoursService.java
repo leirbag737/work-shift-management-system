@@ -19,13 +19,11 @@ public class WorkingHoursService {
     @Autowired
     private ShiftService shiftService;
 
+
     public WorkingHours create(WorkingHoursRequestDTO data) {
 
         WorkingHours newWorkingHours = workingHoursMapper.workingHoursRequestDtoToWorkingHoursEntity(data);
-        System.out.println(newWorkingHours);
-        workingHoursRepository.save(newWorkingHours);
-
-        newWorkingHours.setShifts(shiftService.create(data.shifts()));
+        newWorkingHours.setShifts(shiftService.findOrCreateShifts(data.shifts()));
 
         return workingHoursRepository.save(newWorkingHours);
     }

@@ -29,6 +29,10 @@ public class Shift {
     @ManyToMany(mappedBy = "shifts")
     private List<WorkingHours> workingHours;
 
+    public Shift() {
+        super();
+    }
+
     public Shift(LocalTime shiftStart, LocalTime shiftEnd) {
         this.shiftStart = shiftStart;
         this.shiftEnd = shiftEnd;
